@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { Table, Form, Button, Row, Col } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-import { FaTimes } from 'react-icons/fa';
+import CloseIcon from '@mui/icons-material/Close';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import ReceiptLongIcon from '@mui/icons-material/ReceiptLong';
+import InfoIcon from '@mui/icons-material/Info';
 
 import { toast } from 'react-toastify';
 import Message from '../components/Message';
@@ -55,7 +58,9 @@ const ProfileScreen = () => {
   return (
     <Row>
       <Col md={3}>
-        <h2>User Profile</h2>
+        <h2 style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <AccountCircleIcon style={{ color: '#18bc9c', fontSize: 32 }} /> User Profile
+        </h2>
 
         <Form onSubmit={submitHandler}>
           <Form.Group className='my-2' controlId='name'>
@@ -105,7 +110,9 @@ const ProfileScreen = () => {
         </Form>
       </Col>
       <Col md={9}>
-        <h2>My Orders</h2>
+        <h2 style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+          <ReceiptLongIcon style={{ color: '#fd7e14', fontSize: 32 }} /> My Orders
+        </h2>
         {isLoading ? (
           <Loader />
         ) : error ? (
@@ -134,14 +141,14 @@ const ProfileScreen = () => {
                     {order.isPaid ? (
                       order.paidAt.substring(0, 10)
                     ) : (
-                      <FaTimes style={{ color: 'red' }} />
+                      <CloseIcon style={{ color: 'red' }} />
                     )}
                   </td>
                   <td>
                     {order.isDelivered ? (
                       order.deliveredAt.substring(0, 10)
                     ) : (
-                      <FaTimes style={{ color: 'red' }} />
+                      <CloseIcon style={{ color: 'red' }} />
                     )}
                   </td>
                   <td>
@@ -150,8 +157,9 @@ const ProfileScreen = () => {
                       to={`/order/${order._id}`}
                       className='btn-sm'
                       variant='light'
+                      style={{ display: 'flex', alignItems: 'center', gap: 4 }}
                     >
-                      Details
+                      <InfoIcon style={{ color: '#18bc9c' }} /> Details
                     </Button>
                   </td>
                 </tr>

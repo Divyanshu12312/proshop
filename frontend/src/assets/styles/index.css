@@ -1,5 +1,83 @@
+/* Refined, harmonious color palette */
+:root {
+  --primary: #3c4c5d;
+  --secondary: #18bc9c;
+  --accent: #fd7e14;
+  --accent-yellow: #f8e825;
+  --background: #f8f9fa;
+  --background-accent: #fffbe6;
+  --card-bg: #fff;
+  --card-shadow: 0 2px 8px rgba(60, 76, 93, 0.08);
+  --card-shadow-hover: 0 8px 24px rgba(60, 76, 93, 0.18);
+  --divider: #e0e0e0;
+  --text: #222;
+  --text-light: #fff;
+  --heading: #3c4c5d;
+  --subheading: #18bc9c;
+}
+
+body {
+  font-family: 'Segoe UI', 'Roboto', 'Helvetica Neue', Arial, sans-serif;
+  background: var(--background);
+  color: var(--text);
+  margin: 0;
+  padding: 0;
+  letter-spacing: 0.01em;
+}
+
 main {
   min-height: 80vh;
+  background: var(--background);
+  padding-bottom: 2rem;
+}
+
+section.colored-section {
+  background: var(--background-accent);
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+  padding: 2rem 0;
+  box-shadow: 0 1px 4px rgba(60, 76, 93, 0.04);
+}
+
+hr.section-divider {
+  border: none;
+  border-top: 2px solid var(--divider);
+  margin: 2rem 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--heading);
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+h2, h3 {
+  color: var(--subheading);
+}
+
+.card {
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.2s, transform 0.2s, border 0.2s;
+  border-radius: 1rem;
+  border: 2px solid transparent;
+  background: var(--card-bg);
+  padding-bottom: 0.5rem;
+}
+
+.card:hover {
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px) scale(1.03);
+  border: 2px solid var(--secondary);
+}
+
+.product-title {
+  height: 2.5em;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
 }
 
 .rating span {
@@ -7,20 +85,27 @@ main {
 }
 
 .rating svg {
-  color: #f8e825;
+  color: var(--accent-yellow);
+  filter: drop-shadow(0 1px 2px #fd7e14aa);
 }
 
 .rating-text {
   font-size: 0.8rem;
   font-weight: 600;
   padding-left: 0.5rem;
+  color: var(--accent);
 }
 
-.product-title {
-  height: 2.5em; /* Set a fixed height */
-  overflow: hidden; /* Hide overflow content */
-  text-overflow: ellipsis; /* Add ellipsis for long text */
-  white-space: nowrap; /* Prevent wrapping */
+.price-tag {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--accent-yellow), var(--accent));
+  color: var(--text);
+  font-weight: 700;
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.75rem;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  box-shadow: 0 1px 4px rgba(60, 76, 93, 0.08);
 }
 
 table td,
@@ -37,10 +122,23 @@ table th {
   background: #f4f4f4;
   padding: 10px;
   border: 1px solid #ddd;
+  color: var(--primary);
 }
 
 .review button {
   margin-top: 10px;
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  color: var(--text-light);
+  border: none;
+  border-radius: 0.5rem;
+  transition: background 0.2s, color 0.2s;
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(60, 76, 93, 0.08);
+}
+
+.review button:hover {
+  background: linear-gradient(90deg, var(--accent), var(--secondary));
+  color: var(--text-light);
 }
 
 .carousel-caption {
@@ -50,4 +148,86 @@ table th {
   right: 0;
   bottom: 0;
   background: rgba(0, 0, 0, 0.5);
+}
+
+/* Header/Footer Modernization */
+header .navbar {
+  border-radius: 0 0 1rem 1rem;
+  box-shadow: var(--card-shadow);
+  background: linear-gradient(90deg, var(--primary), var(--secondary)) !important;
+}
+
+header .navbar-nav .nav-link {
+  color: var(--text-light) !important;
+  font-weight: 500;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 0.5rem;
+  margin: 0 0.25rem;
+  padding: 0.5rem 1rem;
+}
+
+header .navbar-nav .nav-link:hover, header .navbar-nav .nav-link.active {
+  background: linear-gradient(90deg, var(--accent-yellow), var(--accent));
+  color: var(--primary) !important;
+}
+
+header .navbar-brand {
+  background: linear-gradient(90deg, var(--accent-yellow), var(--accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  /* text-fill-color: transparent; */
+}
+
+footer {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  color: var(--text-light);
+  padding: 2rem 0 1rem 0;
+  border-radius: 1rem 1rem 0 0;
+  margin-top: 2rem;
+  border-top: 3px solid var(--accent);
+}
+
+footer a, footer a:visited {
+  color: var(--accent-yellow);
+  text-decoration: none;
+  margin: 0 0.5rem;
+  transition: color 0.2s;
+}
+
+footer a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn, .btn-primary, .btn-success, .btn-warning, .btn-danger, .btn-info {
+  background: linear-gradient(90deg, var(--secondary), var(--accent));
+  color: var(--text-light);
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(60, 76, 93, 0.08);
+}
+
+.btn:hover, .btn:focus {
+  background: linear-gradient(90deg, var(--accent), var(--secondary));
+  color: var(--text-light);
+  box-shadow: 0 8px 24px rgba(60, 76, 93, 0.18);
+}
+
+/* Badges */
+.badge-success, .badge {
+  background: linear-gradient(90deg, var(--accent-yellow), var(--accent)) !important;
+  color: var(--primary) !important;
+  font-weight: 700;
+  font-size: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 2px 8px rgba(60, 76, 93, 0.08);
+}
+
+/* Animations */
+.card, .btn, .badge, .navbar, .footer, .product-title {
+  transition: all 0.2s cubic-bezier(0.4,0,0.2,1);
 }

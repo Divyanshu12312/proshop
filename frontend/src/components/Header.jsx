@@ -32,10 +32,10 @@ const Header = () => {
 
   return (
     <header>
-      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect>
+      <Navbar bg='primary' variant='dark' expand='lg' collapseOnSelect style={{ boxShadow: '0 2px 8px rgba(60,76,93,0.08)', borderRadius: '0 0 1rem 1rem' }}>
         <Container>
-          <Navbar.Brand as={Link} to='/'>
-            <img src={logo} alt='ProShop' />
+          <Navbar.Brand as={Link} to='/' style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontWeight: 700, fontSize: '1.5rem' }}>
+            <img src={logo} alt='ProShop' style={{ height: '40px', marginRight: '0.5rem', borderRadius: '0.5rem' }} />
             ProShop
           </Navbar.Brand>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />

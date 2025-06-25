@@ -9,7 +9,9 @@ import {
   Button,
   Card,
 } from 'react-bootstrap';
-import { FaTrash } from 'react-icons/fa';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import Message from '../components/Message';
 import { addToCart, removeFromCart } from '../slices/cartSlice';
 
@@ -37,7 +39,9 @@ const CartScreen = () => {
   return (
     <Row>
       <Col md={8}>
-        <h1 style={{ marginBottom: '20px' }}>Shopping Cart</h1>
+        <h1 style={{ marginBottom: '20px', display: 'flex', alignItems: 'center', gap: 8 }}>
+          <ShoppingCartIcon style={{ color: '#18bc9c', fontSize: 36 }} /> Shopping Cart
+        </h1>
         {cartItems.length === 0 ? (
           <Message>
             Your cart is empty <Link to='/'>Go Back</Link>
@@ -74,8 +78,9 @@ const CartScreen = () => {
                       type='button'
                       variant='light'
                       onClick={() => removeFromCartHandler(item._id)}
+                      style={{ color: '#fd7e14' }}
                     >
-                      <FaTrash />
+                      <DeleteIcon />
                     </Button>
                   </Col>
                 </Row>
@@ -103,8 +108,9 @@ const CartScreen = () => {
                 className='btn-block'
                 disabled={cartItems.length === 0}
                 onClick={checkoutHandler}
+                style={{ display: 'flex', alignItems: 'center', gap: 6, justifyContent: 'center', fontWeight: 600 }}
               >
-                Proceed To Checkout
+                Proceed To Checkout <ArrowForwardIcon />
               </Button>
             </ListGroup.Item>
           </ListGroup>
